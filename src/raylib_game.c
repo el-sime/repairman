@@ -34,6 +34,10 @@
     #define LOG(...)
 #endif
 
+//void toolTip(void);
+//void generateToolBox(int level);
+void DrawCog(float posX, float posY, float radius);
+
 //----------------------------------------------------------------------------------
 // Types and Structures Definition
 //----------------------------------------------------------------------------------
@@ -125,8 +129,7 @@ void UpdateDrawFrame(void)
         ClearBackground(RAYWHITE);
         
         // TODO: Draw your game screen here
-        DrawText("Welcome to raylib NEXT gamejam!", 150, 140, 30, BLACK);
-        DrawRectangleLinesEx((Rectangle){ 0, 0, screenWidth, screenHeight }, 16, BLACK);
+        DrawCog(256, 192, 32);
         
     EndTextureMode();
     
@@ -141,4 +144,12 @@ void UpdateDrawFrame(void)
 
     EndDrawing();
     //----------------------------------------------------------------------------------  
+}
+
+void DrawCog(float posX, float posY, float radius)
+{
+    DrawCircle(posX, posY, radius, BLACK);
+    DrawCircle(posX, posY, radius / 2, WHITE);
+    DrawCircle(posX, posY, 4, BLACK);
+    DrawCircle(posX, posY, 2, WHITE);
 }
